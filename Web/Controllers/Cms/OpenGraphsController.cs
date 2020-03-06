@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Web.Data;
-using Web.Models;
+using Web.Models.Domain;
 
-namespace Web.CmsControllers
+namespace Web.Controllers.Cms
 {
-    [Authorize]
+    
     public class OpenGraphsController : Controller
     {
         private readonly ApplicationDbContext _context;
