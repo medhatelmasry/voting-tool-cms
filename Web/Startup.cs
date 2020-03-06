@@ -49,7 +49,7 @@ namespace Web
             String ConnectionString = check.getConnectionStringEnvVar() ?? Configuration.GetConnectionString("DefaultConnection");
 
             //if not set just use sqlite
-            String DatabaseType = check.checkType() ?? "sqlite";
+            String DatabaseType = check.checkType() ?? "mysql";
 
             switch (DatabaseType)
             {
@@ -68,7 +68,7 @@ namespace Web
                     break;
                 case "mysql":
                     host = Configuration["DBHOST"] ?? "localhost";
-                    port = Configuration["DBPORT"] ?? "3306";
+                    port = Configuration["DBPORT"] ?? "3366";
                     password = Configuration["DBPASSWORD"] ?? "secret";
                     db = Configuration["DBNAME"] ?? "openvoting";
                     services.AddDbContext<ApplicationDbContext>(options =>
@@ -145,6 +145,8 @@ namespace Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            context.Database.Migrate();
 
             app.UseEndpoints(endpoints =>
             {
