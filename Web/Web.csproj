@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Cms\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 
