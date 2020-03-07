@@ -4,7 +4,7 @@ using Web.Models.Domain;
 
 namespace Web.ViewModels
 {
-    public class Organization
+    public class OrganizationViewModel
     {
         [Key]
         [Display(Name = "OrganizationId")]
