@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Web.Models;
 using Web.Data;
 using Web.Models.Domain;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 
 namespace Web.Controllers.Api
 {
