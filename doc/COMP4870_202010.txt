@@ -1,1 +1,0 @@
-Students are upgrading applicatio from .NET 2.2 to .NET 3.1
