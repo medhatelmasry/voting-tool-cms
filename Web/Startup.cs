@@ -84,19 +84,22 @@ namespace Web
             }
 
             // Add Cors
-            services.AddCors(o => o.AddPolicy("PlanVotePolicy", builder => {
+            services.AddCors(o => o.AddPolicy("PlanVotePolicy", builder =>
+            {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
 
             services.AddDefaultIdentity<IdentityUser>(
-                options => 
-                { 
+                options =>
+                {
                     options.SignIn.RequireConfirmedAccount = true;
                 }
             ).AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+            // OLD CODE
             // services.AddIdentity<IdentityUser, IdentityRole>(
             //     option =>
             //     {
@@ -109,6 +112,19 @@ namespace Web
             // ).AddEntityFrameworkStores<ApplicationDbContext>()
             // .AddDefaultTokenProviders();
 
+            //MAIN ERROR: Scheme already exists: Identity.Application
+
+            //Added this. Fixed the problem - Bryce
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+            });
+
             services.AddLocalization(opts =>
             {
                 opts.ResourcesPath = "Resources";
@@ -120,7 +136,7 @@ namespace Web
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
-            IApplicationBuilder app, 
+            IApplicationBuilder app,
             ApplicationDbContext context,
             IWebHostEnvironment env)
         {
