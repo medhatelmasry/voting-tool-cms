@@ -36,6 +36,7 @@ jobs:
       # Run dotnet build and publish
       - name: add-migrations dotnet build and publish
         run: |
+          dotnet tool install --global dotnet-ef --version 3.1.0-*
           dotnet-ef migrations add M1 -o Data/Migrations 
           dotnet build --configuration Release
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
