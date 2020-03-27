@@ -23,7 +23,7 @@ namespace Web.Controllers.Api
 
         // GET: api/Theme (Returns selected theme)
         [HttpGet]
-        [Route("~/api/Theme")]
+        [Route("~/api/Themes")]
         public IActionResult GetThemes()
         {
             Theme selectedTheme = null;
