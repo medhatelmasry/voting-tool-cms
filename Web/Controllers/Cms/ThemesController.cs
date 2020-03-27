@@ -13,7 +13,7 @@ using Web.Data;
 using Web.Models.Domain;
 using Web.ViewModels;
 
-namespace Web.Cms
+namespace Web.Controllers.Cms
 {
 
     // [Authorize(Roles="ROLE_ADMIN")]
