@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Web.Controllers.Cms
+namespace Web.Models.Helpers
 {
     public static class ViewHelper
     {

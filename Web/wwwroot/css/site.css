@@ -47,7 +47,7 @@ body {
     background-color: #e2e2e2 !important;
 }
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
