@@ -9,7 +9,7 @@ using Web.Models;
 using Web.Models.Domain;
 using Web.ViewModels;
 
-namespace Web
+namespace Web.Controllers.Cms
 {
     [Authorize]
     public class BallotIssuesController : Controller
