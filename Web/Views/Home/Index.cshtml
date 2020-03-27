@@ -1,5 +1,10 @@
 ﻿@model Web.ViewModels.DashboardViewModel;
 @using  Microsoft.AspNetCore.Mvc.Localization
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @using Microsoft.Extensions.Localization
 @using Web
 @* @inject IViewLocalizer Localizer *@
@@ -15,7 +20,8 @@
 
 <br />
 
-
+@if (SignInManager.IsSignedIn(User))
+{
 <section class="content-header">
     <h1 class="display-3">@Localizer["home_index_dashboard"]</h1>
     <br />
@@ -44,7 +50,7 @@
                     <p>@Localizer["home_index_pollingPlaces"]</p>
                 </div>
                 <div class="icon">
-                    <i class="material-icons">account_box</i>
+                    <i class="material-icons">location_on</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="PollingPlaces" asp-action="Index">
                     @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
@@ -67,6 +73,110 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-teal">
+                <div class="inner">
+                    <h3>@Model.RacesCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_races"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">account_box</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="Races" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-light-blue">
+                <div class="inner">
+                    <h3>@Model.ThemesCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_themes"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">format_paint</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="Themes" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-olive">
+                <div class="inner">
+                    <h3>@Model.StatesCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_state"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">location_city</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="State" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-orange">
+                <div class="inner">
+                    <h3>@Model.ElectionsCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_elections"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">how_to_vote</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="Elections" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>@Model.OpenGraphsCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_openGraphs"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">insert_chart</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="OpenGraphs" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+         <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h3>@Model.OrganizationsCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_organizations"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">home_work</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="Organizations" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-6">
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h3>@Model.SocialMediasCount<sup style="font-size: 20px"></sup></h3>
+                    <p>@Localizer["home_index_socialMedias"]</p>
+                </div>
+                <div class="icon">
+                    <i class="material-icons">share</i>
+                </div>
+                <a class="small-box-footer" asp-area="" asp-controller="SocialMedias" asp-action="Index">
+                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12">
             <div class="small-box bg-blue">
                 <a class="small-box-footer" asp-area="" asp-controller="Home" asp-action="Diagram" target="_blank">
@@ -76,3 +186,4 @@
         </div>
     </div>
 </section>
+}
