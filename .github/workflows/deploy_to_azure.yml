@@ -36,11 +36,15 @@ jobs:
       # Run dotnet build and publish
       - name: add-migrations dotnet build and publish
         run: |
+          echo **** Installing dotnet-ef
           dotnet tool install --global dotnet-ef --version 3.1.0-*
-          ls
-          pwd
-          # dotnet-ef migrations add M1 -o Data/Migrations 
+          echo **** Deleting Migrations folder
+          rm -r ./Web/Data/Migrations
+          echo **** Adding EF migrations M1 
+          dotnet-ef migrations add M1 -o Data/Migrations 
+          echo **** dotnet build
           dotnet build ./Web/Web.csproj --configuration Release
+          echo **** dotnet publish
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
