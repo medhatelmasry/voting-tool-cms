@@ -162,6 +162,8 @@ namespace Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            context.Database.Migrate();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
