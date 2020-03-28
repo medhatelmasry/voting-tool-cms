@@ -91,26 +91,17 @@ namespace Web
                        .AllowAnyHeader();
             }));
 
-            services.AddDefaultIdentity<IdentityUser>(
-                options =>
+            services.AddIdentity<IdentityUser, IdentityRole>(
+                option =>
                 {
-                    options.SignIn.RequireConfirmedAccount = true;
+                    option.Password.RequireDigit = false;
+                    option.Password.RequiredLength = 6;
+                    option.Password.RequireNonAlphanumeric = false;
+                    option.Password.RequireUppercase = false;
+                    option.Password.RequireLowercase = false;
                 }
-            ).AddEntityFrameworkStores<ApplicationDbContext>();
-
-
-            // OLD CODE
-            // services.AddIdentity<IdentityUser, IdentityRole>(
-            //     option =>
-            //     {
-            //         option.Password.RequireDigit = false;
-            //         option.Password.RequiredLength = 6;
-            //         option.Password.RequireNonAlphanumeric = false;
-            //         option.Password.RequireUppercase = false;
-            //         option.Password.RequireLowercase = false;
-            //     }
-            // ).AddEntityFrameworkStores<ApplicationDbContext>()
-            // .AddDefaultTokenProviders();
+            ).AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
 
             //MAIN ERROR: Scheme already exists: Identity.Application
 
@@ -173,7 +164,8 @@ namespace Web
                 endpoints.MapControllers();
             });
 
-            //AccountsInit.InitializeAsync(app);
+            context.Database.EnsureCreated();
+            AccountsInit.InitializeAsync(app);
             StateInit.Initialize(context);
             if (!context.Themes.Any())
             {

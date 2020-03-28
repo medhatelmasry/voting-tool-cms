@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Web.Models;
 using Web.Data;
-using Web.Models.Constants;
 using Web.Models.Domain;
 
 namespace Web
