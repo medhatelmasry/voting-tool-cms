@@ -1,6 +1,6 @@
-﻿namespace Web.Models.Constants
+﻿public partial class Constants
 {
-    public class Account
+    public partial class Account
     {
         public const string ROLE_ADMIN = "RoleAdmin";
         public const string ADMIN_USERNAME = "Admin";

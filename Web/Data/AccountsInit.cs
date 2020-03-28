@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
-using Web.Models.Constants;
 
 namespace Web.Data
 {
@@ -18,7 +17,7 @@ namespace Web.Data
             {
                 userManager = serviceScope.ServiceProvider.GetService<UserManager<IdentityUser>>();
                 roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
-
+                
                 await InsertUserAsync().ConfigureAwait(false);
             }
         }
@@ -26,22 +25,22 @@ namespace Web.Data
         public static async Task InsertUserAsync()
         {
             await CreateRole(
-                Account.ROLE_ADMIN,
-                Account.ROLE_ADMIN);
+                Constants.Account.ROLE_ADMIN,
+                Constants.Account.ROLE_ADMIN);
             await AddNewUserToRole(
-                Account.ADMIN_EMAIL,
-                Account.ADMIN_USERNAME,
-                Account.DEFAULT_PASSWORD,
-                Account.ROLE_ADMIN);
+                Constants.Account.ADMIN_EMAIL,
+                Constants.Account.ADMIN_USERNAME,
+                Constants.Account.DEFAULT_PASSWORD,
+                Constants.Account.ROLE_ADMIN);
 
             await CreateRole(
-                Account.ROLE_EDITOR,
-                Account.ROLE_EDITOR);
+                Constants.Account.ROLE_EDITOR,
+                Constants.Account.ROLE_EDITOR);
             await AddNewUserToRole(
-                Account.EDITOR_EMAIL,
-                Account.EDITOR_USERNAME,
-                Account.DEFAULT_PASSWORD,
-                Account.ROLE_EDITOR);
+                Constants.Account.EDITOR_EMAIL,
+                Constants.Account.EDITOR_USERNAME,
+                Constants.Account.DEFAULT_PASSWORD,
+                Constants.Account.ROLE_EDITOR);
         }
 
         private static async Task CreateRole(string identityRoleName, string identityRoleNormalizedName)
