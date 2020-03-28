@@ -40,7 +40,7 @@ jobs:
           ls
           pwd
           dotnet-ef migrations add M1 -o Data/Migrations 
-          dotnet build --configuration Release
+          dotnet build ./Cms.sln --configuration Release
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
