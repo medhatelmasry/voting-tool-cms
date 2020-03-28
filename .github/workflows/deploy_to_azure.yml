@@ -39,8 +39,8 @@ jobs:
           dotnet tool install --global dotnet-ef --version 3.1.0-*
           ls
           pwd
-          dotnet-ef migrations add M1 -o Data/Migrations 
-          dotnet build ./Cms.sln --configuration Release
+          # dotnet-ef migrations add M1 -o Data/Migrations 
+          dotnet build ./Web/Web.csproj --configuration Release
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
