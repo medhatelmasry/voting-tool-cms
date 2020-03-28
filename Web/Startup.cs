@@ -101,7 +101,8 @@ namespace Web
                     option.Password.RequireLowercase = false;
                 }
             ).AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+            .AddDefaultTokenProviders().AddDefaultUI();
+            
 
             //MAIN ERROR: Scheme already exists: Identity.Application
 
