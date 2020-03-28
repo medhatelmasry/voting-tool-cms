@@ -41,7 +41,7 @@ jobs:
           echo **** Deleting Migrations folder
           rm -r ./Web/Data/Migrations
           echo **** Adding EF migrations M1 
-          dotnet-ef migrations add M1 -o Data/Migrations 
+          dotnet-ef migrations add M1 --project ./Web/Web.csproj --output-dir Data/Migrations 
           echo **** dotnet build
           dotnet build ./Web/Web.csproj --configuration Release
           echo **** dotnet publish
