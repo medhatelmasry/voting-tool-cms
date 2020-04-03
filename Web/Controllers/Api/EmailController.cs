@@ -12,6 +12,20 @@ using Microsoft.Extensions.Options;
 using Web.Models;
 using Web.Models.Configuration;
 
+/*
+For the controller to send off an email, it requires sending a POST request with a body that has
+    {
+        EmailAddress: emailAddressToSendTo,
+        Subject: subject,
+        Message: message
+    }
+In order to use the gmail smtp service, the account that is sending off the email needs to have allowed 
+less secure app access. The email account details associated with the controller can be found in the 
+appsettings.json file. To allow less secure app access on the account, log in to the gmail email account, 
+click the account button from the top right menu, select the security tab, scroll down, and click the 
+"Turn on access (not recommended)" button under the "Less secure app access" section.
+*/
+
 namespace Web.Controllers.Api
 {
     [Microsoft.AspNetCore.Cors.EnableCors("PlanVotePolicy")]
