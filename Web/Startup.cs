@@ -84,30 +84,38 @@ namespace Web
             }
 
             // Add Cors
-            services.AddCors(o => o.AddPolicy("PlanVotePolicy", builder => {
+            services.AddCors(o => o.AddPolicy("PlanVotePolicy", builder =>
+            {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
 
-            services.AddDefaultIdentity<IdentityUser>(
-                options => 
-                { 
-                    options.SignIn.RequireConfirmedAccount = true;
+            services.AddIdentity<IdentityUser, IdentityRole>(
+                option =>
+                {
+                    option.Password.RequireDigit = false;
+                    option.Password.RequiredLength = 6;
+                    option.Password.RequireNonAlphanumeric = false;
+                    option.Password.RequireUppercase = false;
+                    option.Password.RequireLowercase = false;
                 }
-            ).AddEntityFrameworkStores<ApplicationDbContext>();
+            ).AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders().AddDefaultUI();
+            
 
-            // services.AddIdentity<IdentityUser, IdentityRole>(
-            //     option =>
-            //     {
-            //         option.Password.RequireDigit = false;
-            //         option.Password.RequiredLength = 6;
-            //         option.Password.RequireNonAlphanumeric = false;
-            //         option.Password.RequireUppercase = false;
-            //         option.Password.RequireLowercase = false;
-            //     }
-            // ).AddEntityFrameworkStores<ApplicationDbContext>()
-            // .AddDefaultTokenProviders();
+            //MAIN ERROR: Scheme already exists: Identity.Application
+
+            //Added this. Fixed the problem - Bryce
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+            });
 
             services.AddLocalization(opts =>
             {
@@ -120,7 +128,7 @@ namespace Web
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
-            IApplicationBuilder app, 
+            IApplicationBuilder app,
             ApplicationDbContext context,
             IWebHostEnvironment env)
         {
@@ -146,6 +154,8 @@ namespace Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            context.Database.Migrate();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -155,7 +165,8 @@ namespace Web
                 endpoints.MapControllers();
             });
 
-            //AccountsInit.InitializeAsync(app);
+            context.Database.EnsureCreated();
+            AccountsInit.InitializeAsync(app);
             StateInit.Initialize(context);
             if (!context.Themes.Any())
             {

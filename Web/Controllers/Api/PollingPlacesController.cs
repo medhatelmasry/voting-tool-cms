@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Web.Models;
 using Web.Data;
-using Web.ApiDTO;
 using Web.Models.Domain;
 
 namespace Web.Controllers.Api
 {
+
     [Route("api/[controller]")]
     [ApiController]
-    [Microsoft.AspNetCore.Cors.EnableCors("PlanVotePolicy")]
     public class PollingPlacesController : ControllerBase
     {
         public const int STEP_NUMBER = 3; // Hard-coded

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Web.Models.Domain;
 
 namespace Web.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -41,7 +42,7 @@ namespace Web.Data
         public DbSet<PollingPlaceDate> PollingPlaceDates { get; set; }
         public DbSet<Theme> Themes { get; set; }
         public DbSet<Image> Images { get; set; }
-        public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<SocialMedia> SocialMedia { get; set; }
         public DbSet<CandidateDetail> CandidateDetails { get; set; }
         public DbSet<Step> Steps { get; set; }
         public DbSet<OpenGraph> OpenGraph { get; set; }

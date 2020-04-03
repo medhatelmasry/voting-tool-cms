@@ -10,15 +10,15 @@ using Web.Models;
 using Web.Data;
 using Web.Models.Domain;
 
-namespace Web.CmsControllers
+namespace Web.Controllers.Cms
 {
     [Authorize]
-    public class StateController : Controller
+    public class StatesController : Controller
     {
         private static ApplicationDbContext _context;
         private int _managedElectionID;
 
-        public StateController(ApplicationDbContext context)
+        public StatesController(ApplicationDbContext context)
         {
             _context = context;
 
