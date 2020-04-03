@@ -56,7 +56,9 @@ namespace Web.Controllers.Cms
                 OrganizationsCount = _context.Organizations
                     .Where(c => c.OrganizationId == _managedElectionID)
                     .Count(),
+
                 SocialMediaCount = _context.SocialMedia
+
                     // .Where(c => c. == _managedElectionID)
                     .Count()
             };

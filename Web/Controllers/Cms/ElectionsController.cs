@@ -11,6 +11,7 @@ using Web.Data;
 using Web.Models.Domain;
 
 namespace Web.Controllers.Cms
+
 {
     //[Authorize(Roles = Account.ROLE_ADMIN)]
     public class ElectionsController : Controller
@@ -253,11 +254,13 @@ namespace Web.Controllers.Cms
             }
 
             // Copy Social Medias
+
             var socialMedia = _context.SocialMedia.Where(c => c.ElectionId == id);
             var socialMediaId = _context.SocialMedia.OrderByDescending( sm => sm.ID).FirstOrDefault().ID;
             foreach(var sm in socialMedia){
                 var tempSM = sm;
                 tempSM.ID = ++socialMediaId;
+
                 tempSM.ElectionId = election.ElectionId;
                 _context.Add(tempSM);
                 await _context.SaveChangesAsync();
