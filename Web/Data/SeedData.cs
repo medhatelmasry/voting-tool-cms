@@ -34,7 +34,7 @@ namespace Web.Data
 
         public static List<Candidate> GetCandidates()
         {
-            const string candidatesFile = "wwwroot/Data/candidates.json";
+            const string candidatesFile = "wwwroot/data/candidates.json";
             List<JSONCandidate> candidateData = GetJsonData<JSONCandidate>(candidatesFile);
             List<Candidate> candidates = new List<Candidate>();
             foreach (JSONCandidate existingCandidate in candidateData)
@@ -53,7 +53,7 @@ namespace Web.Data
 
         public static List<CandidateDetail> GetCandidateDetails()
         {
-            const string candidatesFile = "wwwroot/Data/candidates.json";
+            const string candidatesFile = "wwwroot/data/candidates.json";
             List<JSONCandidate> candidateData = GetJsonData<JSONCandidate>(candidatesFile);
             List<CandidateDetail> candidateDetails = new List<CandidateDetail>();
             int id = 1;
@@ -134,7 +134,7 @@ namespace Web.Data
 
         public static List<Contact> GetCandidateContacts()
         {
-            const string candidatesFile = "wwwroot/Data/candidates.json";
+            const string candidatesFile = "wwwroot/data/candidates.json";
             List<JSONCandidate> candidateData = GetJsonData<JSONCandidate>(candidatesFile);
             List<Contact> candidateContacts = new List<Contact>();
             int id = 1;
@@ -241,7 +241,7 @@ namespace Web.Data
 
         public static List<CandidateRace> GetCandidateRaces()
         {
-            const string candidatesFile = "wwwroot/Data/candidates.json";
+            const string candidatesFile = "wwwroot/data/candidates.json";
             List<JSONCandidate> candidateData = GetJsonData<JSONCandidate>(candidatesFile);
             List<CandidateRace> candidateRaces = new List<CandidateRace>();
             List<Race> races = GetRaces();
@@ -262,7 +262,7 @@ namespace Web.Data
 
         public static List<PollingPlace> GetPollingPlaces()
         {
-            const string pollingPlacesFile = "wwwroot/Data/pollingPlaces.json";
+            const string pollingPlacesFile = "wwwroot/data/pollingPlaces.json";
             List<JSONPollingPlace> pollingPlacesData = GetJsonData<JSONPollingPlace>(pollingPlacesFile);
             List<PollingPlace> pollingPlaces = pollingPlacesData
                 .Select(ppd => new PollingPlace()
@@ -287,7 +287,7 @@ namespace Web.Data
 
         public static List<PollingPlaceDate> GetPollingPlaceDates()
         {
-            const string pollingPlacesFile = "wwwroot/Data/pollingPlaces.json";
+            const string pollingPlacesFile = "wwwroot/data/pollingPlaces.json";
             List<JSONPollingPlace> pollingPlacesData = GetJsonData<JSONPollingPlace>(pollingPlacesFile);
             List<PollingPlaceDate> pollingDates = new List<PollingPlaceDate>();
             foreach (JSONPollingPlace p in pollingPlacesData)
@@ -340,7 +340,7 @@ namespace Web.Data
             const int OrderPark = 3;
             const int OrderSchool = 4;
 
-            const string candidatesFile = "wwwroot/Data/candidates.json";
+            const string candidatesFile = "wwwroot/data/candidates.json";
             List<JSONCandidate> candidateData = GetJsonData<JSONCandidate>(candidatesFile);
             List<Race> races = new List<Race>();
             int id = 1;

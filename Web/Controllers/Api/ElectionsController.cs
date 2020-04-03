@@ -11,7 +11,7 @@ using Web.Models.Domain;
 
 namespace Web.Controllers.Api
 {
-    [Route("api/election")]
+    [Route("api/[controller]")]
     [ApiController]
     [Microsoft.AspNetCore.Cors.EnableCors("PlanVotePolicy")]
     public class ElectionsController : ControllerBase

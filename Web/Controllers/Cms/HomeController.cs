@@ -37,6 +37,27 @@ namespace Web.Controllers
                     .Count(),
                 PollingPlacesCount = _context.PollingPlaces
                     .Where(c => c.ElectionId == _managedElectionID)
+                    .Count(),
+                RacesCount = _context.Races
+                    .Where(c => c.RaceId == _managedElectionID)
+                    .Count(),
+                ThemesCount = _context.Themes
+                    // .Where(c => c.T == _managedElectionID)
+                    .Count(),
+                StatesCount = _context.StateSingleton
+                    .Where(c => c.StateId == _managedElectionID)
+                    .Count(),
+                ElectionsCount = _context.Elections
+                    .Where(c => c.ElectionId == _managedElectionID)
+                    .Count(),
+                OpenGraphsCount = _context.OpenGraph
+                    .Where(c => c.OpenGraphId == _managedElectionID)
+                    .Count(),
+                OrganizationsCount = _context.Organizations
+                    .Where(c => c.OrganizationId == _managedElectionID)
+                    .Count(),
+                SocialMediasCount = _context.SocialMedias
+                    // .Where(c => c. == _managedElectionID)
                     .Count()
             };
 
@@ -44,7 +65,7 @@ namespace Web.Controllers
         }
 
         public void Diagram()
-        { 
+        {
             Response.Redirect("../diagram.html");
         }
 
@@ -56,7 +77,7 @@ namespace Web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         [HttpPost]
@@ -65,7 +86,7 @@ namespace Web.Controllers
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true}
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true }
                 // isEssential = true is necessary here to possibly bypass consent policy check, otherwise, the culture might
                 // not be switched properly
             );
