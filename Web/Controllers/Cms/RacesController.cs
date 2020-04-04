@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Web.ViewModels;
 using Web.Models.Domain;
 
-namespace Web.Controllers
+namespace Web.Controllers.Cms
 {
     public class RacesController : Controller
     {

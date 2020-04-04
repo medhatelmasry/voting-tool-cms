@@ -42,7 +42,7 @@ namespace Web.Data
         public DbSet<PollingPlaceDate> PollingPlaceDates { get; set; }
         public DbSet<Theme> Themes { get; set; }
         public DbSet<Image> Images { get; set; }
-        public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<SocialMedia> SocialMedia { get; set; }
         public DbSet<CandidateDetail> CandidateDetails { get; set; }
         public DbSet<Step> Steps { get; set; }
         public DbSet<OpenGraph> OpenGraph { get; set; }

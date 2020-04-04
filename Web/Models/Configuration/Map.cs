@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Globalization;
 
-namespace Web.Models
+namespace Web.Models.Configuration
 {
     public partial class Map
     {
