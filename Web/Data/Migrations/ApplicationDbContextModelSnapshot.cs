@@ -7149,9 +7149,11 @@ namespace Web.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("URL")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("OpenGraphId");

@@ -8,24 +8,22 @@ namespace Web.Models.Domain
         [Key]
         public int OpenGraphId { get; set; }
 
+        [Required(ErrorMessage = "Title is required")]
+        [StringLength(40, MinimumLength=2,ErrorMessage = "Title must be between 2 and 40 characters in length.")]
         public string Title { get; set; }
 
+        [Url]
         public string URL { get; set; }
 
+        [RegularExpression(@"(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)")]
         public string Image { get; set; }
-
         public string Determiner { get; set; }
-
         public string Locale { get; set; }
 
         // public List<string> LocalAlternate { get; set; }
-
         public string SiteName { get; set; }
-
         public List<OGImage> Images { get; set; }
-
         public List<OGAudio> Audios { get; set; }
-
         public List<OGVideo> Videos { get; set; }
     }
 

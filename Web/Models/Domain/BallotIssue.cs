@@ -16,6 +16,7 @@ namespace Web.Models.Domain
         public Election Election { get; set; }
 
         [Display(Name = "BallotIssue")]
+        
         public string BallotIssueTitle { get; set; }
 
         [Display(Name = "Description")]
