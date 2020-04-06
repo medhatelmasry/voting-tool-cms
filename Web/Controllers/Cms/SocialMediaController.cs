@@ -11,26 +11,26 @@ using Web.Models.Domain;
 
 namespace Web.Controllers.Cms
 {
-    public class SocialMediasController : Controller
+    public class SocialMediaController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly int _managedElectionID;
 
-        public SocialMediasController(ApplicationDbContext context)
+        public SocialMediaController(ApplicationDbContext context)
         {
             _context = context;
             _managedElectionID = _context.StateSingleton.Find(State.STATE_ID).ManagedElectionID;
         }
 
-        // GET: SocialMedias
+        // GET: SocialMedia
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SocialMedias
+            return View(await _context.SocialMedia
                 .Where(sm => sm.ElectionId == _managedElectionID)
                 .ToListAsync());
         }
 
-        // GET: SocialMedias/Details/5
+        // GET: SocialMedia/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,7 +38,7 @@ namespace Web.Controllers.Cms
                 return NotFound();
             }
 
-            var socialMedia = await _context.SocialMedias
+            var socialMedia = await _context.SocialMedia
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (socialMedia == null)
             {
@@ -48,13 +48,13 @@ namespace Web.Controllers.Cms
             return View(socialMedia);
         }
 
-        // GET: SocialMedias/Create
+        // GET: SocialMedia/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: SocialMedias/Create
+        // POST: SocialMedia/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -72,7 +72,7 @@ namespace Web.Controllers.Cms
             return View(socialMedia);
         }
 
-        // GET: SocialMedias/Edit/5
+        // GET: SocialMedia/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace Web.Controllers.Cms
                 return NotFound();
             }
 
-            var socialMedia = await _context.SocialMedias.FindAsync(id);
+            var socialMedia = await _context.SocialMedia.FindAsync(id);
             if (socialMedia == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Web.Controllers.Cms
             return View(socialMedia);
         }
 
-        // POST: SocialMedias/Edit/5
+        // POST: SocialMedia/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -125,7 +125,7 @@ namespace Web.Controllers.Cms
             return View(socialMedia);
         }
 
-        // GET: SocialMedias/Delete/5
+        // GET: SocialMedia/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace Web.Controllers.Cms
                 return NotFound();
             }
 
-            var socialMedia = await _context.SocialMedias
+            var socialMedia = await _context.SocialMedia
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (socialMedia == null)
             {
@@ -143,20 +143,20 @@ namespace Web.Controllers.Cms
             return View(socialMedia);
         }
 
-        // POST: SocialMedias/Delete/5
+        // POST: SocialMedia/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var socialMedia = await _context.SocialMedias.FindAsync(id);
-            _context.SocialMedias.Remove(socialMedia);
+            var socialMedia = await _context.SocialMedia.FindAsync(id);
+            _context.SocialMedia.Remove(socialMedia);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SocialMediaExists(int id)
         {
-            return _context.SocialMedias.Any(e => e.ID == id);
+            return _context.SocialMedia.Any(e => e.ID == id);
         }
     }
 }

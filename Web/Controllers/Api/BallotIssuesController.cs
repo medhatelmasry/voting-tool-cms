@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Web.Models;
 using Web.Data;
-using Web.ApiDTO;
 using Web.Models.Domain;
 
 namespace Web.Controllers.Api
