@@ -9,7 +9,7 @@ namespace Web.Models.Domain
     public class SocialMedia
     {
         public int ID { get; set; }
-        
+
         public int ElectionId { get; set; }
 
         public Election Election { get; set; }
@@ -23,6 +23,7 @@ namespace Web.Models.Domain
 
         [Required]
         [Display(Name = "Link")]
+        [Url]
         public string Link { get; set; }
     }
 }
