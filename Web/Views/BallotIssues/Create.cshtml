@@ -7,16 +7,9 @@
 @{
     ViewData["Title"] = @Localizer["ballotIssues_create_title"];
 }
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-        asp-fallback-test="window.jQuery"
-        crossorigin="anonymous"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-</script>
-
 <h1>@ViewData["Title"]</h1>
 
+<link rel="stylesheet" href="~/css/trumbowyg.css" />
 <div class="panel panel-default">
     <form asp-action="Create">
         <div>
@@ -26,11 +19,20 @@
                 @Html.TextAreaFor(model => model.BallotIssueTitle, new { @class = "form-control", @rows = 2 })
                 @Html.ValidationMessageFor(model => model.BallotIssueTitle, "", new { @class = "text-danger" })
             </div>
-            <div class="form-group">
+
+            @* Div for description without WYSIWYG editor *@
+            @* <div class="form-group">
                 @Html.LabelFor(model => model.Description, new { @class = "control-label" })
                 @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = 4 })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
+            </div> *@
+
+            @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+            <textarea id='editor'class="trumbowyg" asp-for="Description">
+                @* @Html.LabelFor(model => model.Description, new { @class = "control-label" }) *@
+                @* @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = 4 }) *@
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </textarea>
 
             <label class="control-label">@Html.LabelFor(model => model.BallotIssueOptions)</label>
             <div id="options">
@@ -87,6 +89,12 @@
     <a asp-action="Index" class="btn btn-info">@Localizer["backButton"]</a>
 </div>
 
-@section Scripts {
+@section scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+    <script src="~/lib/Trumbowyg-master/dist/trumbowyg.js"></script>
+    <script>$('.trumbowyg').trumbowyg();</script>
+        
 }
+

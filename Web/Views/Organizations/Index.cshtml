@@ -35,7 +35,7 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.Raw(item.Description)
                 </td>
                 <td class="button-group">
                     <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.OrganizationId">@Localizer["editButton"]</a>

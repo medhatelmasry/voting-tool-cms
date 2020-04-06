@@ -9,7 +9,7 @@ using Web.Data;
 using Web.Models;
 using Web.Models.Domain;
 
-namespace Web.CmsControllers
+namespace Web.Controllers.Cms
 {
     public class OrganizationsController : Controller
     {

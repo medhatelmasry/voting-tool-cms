@@ -14,7 +14,7 @@ namespace Web.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2");
+                .HasAnnotation("ProductVersion", "3.1.3");
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -7145,9 +7145,11 @@ namespace Web.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("URL")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("OpenGraphId");
@@ -8004,7 +8006,7 @@ namespace Web.Data.Migrations
 
                     b.HasIndex("ElectionId");
 
-                    b.ToTable("SocialMedias");
+                    b.ToTable("SocialMedia");
                 });
 
             modelBuilder.Entity("Web.Models.Domain.State", b =>

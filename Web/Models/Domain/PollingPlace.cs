@@ -24,6 +24,8 @@ namespace Web.Models.Domain
         public string PollingStationName { get; set; }
 
         [Display(Name = "Address")]
+        [Required(ErrorMessage = "Please enter an address.")]
+        [StringLength(512, MinimumLength = 2, ErrorMessage = "Address must be between 2 and 512 characters in length.")]
         public string Address { get; set; }
 
         [Display(Name = "WheelchairInfo")]
@@ -45,9 +47,13 @@ namespace Web.Models.Domain
         public string LocalArea { get; set; }
 
         [Display(Name = "Phone")]
+        [Required(ErrorMessage = "Phone number is required")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public string Phone { get; set; }
 
         [Display(Name = "Email")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
         [Display(Name = "PollingPlaceDates")]

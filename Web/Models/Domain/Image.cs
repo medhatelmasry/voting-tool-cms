@@ -19,8 +19,9 @@ namespace Web.Models.Domain
 
         [Display(Name = "Type")]
         public string Type { get; set; }
+        
         [Required(ErrorMessage = "Please enter the url that the image will link to.")]
-
+        [RegularExpression(@"(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)")]
         [Display(Name = "Value")]
         public string Value { get; set; }
 
