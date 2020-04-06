@@ -9,7 +9,7 @@ using Web.Models;
 using Web.Models.Domain;
 using Web.ViewModels;
 
-namespace Web.Controllers
+namespace Web.Controllers.Cms
 {
     public class HomeController : Controller
     {
@@ -56,7 +56,9 @@ namespace Web.Controllers
                 OrganizationsCount = _context.Organizations
                     .Where(c => c.OrganizationId == _managedElectionID)
                     .Count(),
-                SocialMediasCount = _context.SocialMedias
+
+                SocialMediaCount = _context.SocialMedia
+
                     // .Where(c => c. == _managedElectionID)
                     .Count()
             };

@@ -10,7 +10,7 @@ using Web.Models;
 using Web.Data;
 using Web.Models.Domain;
 
-namespace Web.CmsControllers
+namespace Web.Controllers.Cms
 {
     [Authorize]
     public class StatesController : Controller

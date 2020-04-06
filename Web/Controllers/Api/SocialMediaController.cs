@@ -23,12 +23,12 @@ namespace Web.Controllers.Api
             _context = context;
         }
 
-        // GET: api/SocialMediasAPI
+        // GET: api/SocialMediaAPI
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SocialMedia>>> GetSocialMedias()
+        public async Task<ActionResult<IEnumerable<SocialMedia>>> GetSocialMedia()
         {
-            var socialMedias = await _context
-                .SocialMedias
+            var socialMedia = await _context
+                .SocialMedia
                 .Select(socialMedia => new
                 {
                     socialMedia.MediaName,
@@ -39,15 +39,15 @@ namespace Web.Controllers.Api
 
             return Ok(new
             {
-                socialMedias,
+                socialMedia,
             });
         }
 
-        // GET: api/SocialMediasAPI/5
+        // GET: api/SocialMediaAPI/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SocialMedia>> GetSocialMedia(int id)
         {
-            var socialMedia = await _context.SocialMedias.FindAsync(id);
+            var socialMedia = await _context.SocialMedia.FindAsync(id);
 
             if (socialMedia == null)
             {
@@ -57,7 +57,7 @@ namespace Web.Controllers.Api
             return socialMedia;
         }
 
-        // PUT: api/SocialMediasAPI/5
+        // PUT: api/SocialMediaAPI/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSocialMedia(int id, SocialMedia socialMedia)
         {
@@ -87,27 +87,27 @@ namespace Web.Controllers.Api
             return NoContent();
         }
 
-        // POST: api/SocialMediasAPI
+        // POST: api/SocialMediaAPI
         [HttpPost]
         public async Task<ActionResult<SocialMedia>> PostSocialMedia(SocialMedia socialMedia)
         {
-            _context.SocialMedias.Add(socialMedia);
+            _context.SocialMedia.Add(socialMedia);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSocialMedia", new { id = socialMedia.ID }, socialMedia);
         }
 
-        // DELETE: api/SocialMediasAPI/5
+        // DELETE: api/SocialMediaAPI/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<SocialMedia>> DeleteSocialMedia(int id)
         {
-            var socialMedia = await _context.SocialMedias.FindAsync(id);
+            var socialMedia = await _context.SocialMedia.FindAsync(id);
             if (socialMedia == null)
             {
                 return NotFound();
             }
 
-            _context.SocialMedias.Remove(socialMedia);
+            _context.SocialMedia.Remove(socialMedia);
             await _context.SaveChangesAsync();
 
             return socialMedia;
@@ -115,7 +115,7 @@ namespace Web.Controllers.Api
 
         private bool SocialMediaExists(int id)
         {
-            return _context.SocialMedias.Any(e => e.ID == id);
+            return _context.SocialMedia.Any(e => e.ID == id);
         }
     }
 }

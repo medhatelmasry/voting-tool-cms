@@ -5,7 +5,7 @@ using Web.Models;
 using Web.Data;
 using Web.Models.Domain;
 
-namespace Web
+namespace Web.Data
 {
     internal static class ThemesInit
     {
@@ -30,10 +30,10 @@ namespace Web
                context.Images.AddRange(images);
                context.SaveChanges();
            }
-           if (context.SocialMedias?.Any() != true)
+           if (context.SocialMedia?.Any() != true)
            {
-               var socialMedias = GetSocialMedias().ToArray();
-               context.SocialMedias.AddRange(socialMedias);
+               var socialMedia = GetSocialMedia().ToArray();
+               context.SocialMedia.AddRange(socialMedia);
                context.SaveChanges();
            }
        }
@@ -54,10 +54,10 @@ namespace Web
         //         context.SaveChanges();
         //     }
 
-        //     if (context.SocialMedias?.Any() != true)
+        //     if (context.SocialMedia?.Any() != true)
         //     {
-        //         var socialMedias = GetSocialMedias().ToArray();
-        //         context.SocialMedias.AddRange(socialMedias);
+        //         var socialMedia = GetSocialMedia().ToArray();
+        //         context.SocialMedia.AddRange(socialMedia);
         //         context.SaveChanges();
         //     }
         // }
@@ -191,7 +191,7 @@ namespace Web
             };
         }
 
-        private static List<SocialMedia> GetSocialMedias()
+        private static List<SocialMedia> GetSocialMedia()
         {
             return new List<SocialMedia>()
             {

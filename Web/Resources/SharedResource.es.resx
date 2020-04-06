@@ -379,7 +379,7 @@
 
 
     <!-- View Localization -->
-    <!-- SocialMedias -->
+    <!-- SocialMedia -->
 
     <data name="socialMedia_create_title" xml:space="preserve">
         <value>Crear un nuevo ícono en los medios sociales</value>

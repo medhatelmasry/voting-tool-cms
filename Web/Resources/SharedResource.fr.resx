@@ -374,7 +374,7 @@
 
 
     <!-- View Localization -->
-    <!-- SocialMedias -->
+    <!-- SocialMedia -->
 
     <data name="socialMedia_create_title" xml:space="preserve">
         <value>Créer une nouvelle icône de réseau social</value>
