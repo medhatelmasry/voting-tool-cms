@@ -19,16 +19,16 @@ namespace Web.Controllers.Cms
     // [Authorize(Roles="ROLE_ADMIN")]
     public class ThemesController : Controller
     {
-        [Obsolete]
-        private readonly IHostingEnvironment _env;
+        /*[Obsolete]
+        private readonly IHostingEnvironment _env;*/
 
         private readonly ApplicationDbContext _context;
 
         [Obsolete]
-        public ThemesController(ApplicationDbContext context, IHostingEnvironment env)
+        public ThemesController(ApplicationDbContext context)
         {
             _context = context;
-			_env = env;
+			//_env = env;
         }
 
         [HttpGet]
@@ -37,11 +37,11 @@ namespace Web.Controllers.Cms
             return View(GetThemesViewModel());
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult getImg()
         {
         	return File("~/images/logo/logo.png", "image/jpeg");
-        }
+        }*/
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -66,7 +66,7 @@ namespace Web.Controllers.Cms
             return View(GetThemesViewModel());
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
 
@@ -108,7 +108,7 @@ namespace Web.Controllers.Cms
             }
 
             return RedirectToAction("Index");
-        }
+        }*/
 
         private string ChangeCurrentTheme(ThemesViewModel viewModel)
         {
