@@ -321,7 +321,7 @@ namespace Web.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SocialMedias",
+                name: "SocialMedia",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -333,9 +333,9 @@ namespace Web.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SocialMedias", x => x.ID);
+                    table.PrimaryKey("PK_SocialMedia", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_SocialMedias_Elections_ElectionId",
+                        name: "FK_SocialMedia_Elections_ElectionId",
                         column: x => x.ElectionId,
                         principalTable: "Elections",
                         principalColumn: "ElectionId",
@@ -5309,8 +5309,8 @@ namespace Web.Data.Migrations
                 column: "ElectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SocialMedias_ElectionId",
-                table: "SocialMedias",
+                name: "IX_SocialMedia_ElectionId",
+                table: "SocialMedia",
                 column: "ElectionId");
 
             migrationBuilder.CreateIndex(
@@ -5369,7 +5369,7 @@ namespace Web.Data.Migrations
                 name: "PollingPlaceDates");
 
             migrationBuilder.DropTable(
-                name: "SocialMedias");
+                name: "SocialMedia");
 
             migrationBuilder.DropTable(
                 name: "StateSingleton");
