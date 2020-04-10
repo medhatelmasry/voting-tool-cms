@@ -2,10 +2,10 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = @Localizer["elections_details_title"];
+    ViewData["Title"] = @Localizer["Details"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -37,8 +37,8 @@
             @Html.Raw(Model.Description);
         </dd>
     </dl>
-    <a asp-action="Edit" asp-route-id="@Model.ElectionId" class="btn btn-primary">@Localizer["editButton"]</a>
+    <a asp-action="Edit" asp-route-id="@Model.ElectionId" class="btn btn-primary">@Localizer["Edit"]</a>
 </div>
 <div>
-    <a class="btn btn-info" asp-action="Index">@Localizer["backButton"]</a>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to List"]</a>
 </div>

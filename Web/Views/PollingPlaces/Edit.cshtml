@@ -2,7 +2,8 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+
+@inject IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = @Localizer["Edit Polling Place"];
@@ -76,25 +77,25 @@
 
             @for (var i = 0; i < Model.PollingPlaceDates.Count; i++)
             {
-            <div class="date-group">
-                <span>@Localizer["Date " + (i + 1)]</span>
-                <button type="button" role="button" class="btn btn-primary" onclick="removeDate(@i)">@Localizer["Remove Date"]</button>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PollingPlaceDates[i].PollingDate, new { @class = "control-label" })
-                    @Html.EditorFor(model => model.PollingPlaceDates[i].PollingDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                    @Html.ValidationMessageFor(model => model.PollingPlaceDates[i].PollingDate, "", new { @class = "text-danger" })
+                <div class="date-group">
+                    <span>@Localizer["Date " + (i + 1)]</span>
+                    <button type="button" role="button" class="btn btn-primary" onclick="removeDate(@i)">@Localizer["Remove Date"]</button>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PollingPlaceDates[i].PollingDate, new { @class = "control-label" })
+                        @Html.EditorFor(model => model.PollingPlaceDates[i].PollingDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.PollingPlaceDates[i].PollingDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PollingPlaceDates[i].StartTime, new { @class = "control-label" })
+                        @Html.EditorFor(model => model.PollingPlaceDates[i].StartTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
+                        @Html.ValidationMessageFor(model => model.PollingPlaceDates[i].StartTime, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PollingPlaceDates[i].EndTime, new { @class = "control-label" })
+                        @Html.EditorFor(model => model.PollingPlaceDates[i].EndTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
+                        @Html.ValidationMessageFor(model => model.PollingPlaceDates[i].EndTime, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PollingPlaceDates[i].StartTime, new { @class = "control-label" })
-                    @Html.EditorFor(model => model.PollingPlaceDates[i].StartTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
-                    @Html.ValidationMessageFor(model => model.PollingPlaceDates[i].StartTime, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PollingPlaceDates[i].EndTime, new { @class = "control-label" })
-                    @Html.EditorFor(model => model.PollingPlaceDates[i].EndTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
-                    @Html.ValidationMessageFor(model => model.PollingPlaceDates[i].EndTime, "", new { @class = "text-danger" })
-                </div>
-            </div>
             }
         </div>
 

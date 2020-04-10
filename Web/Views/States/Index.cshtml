@@ -2,10 +2,10 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = @Localizer["state_index_title"];
+    ViewData["Title"] = @Localizer["State"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -33,4 +33,4 @@
         </tr>
     </tbody>
 </table>
-<a asp-action="Edit" asp-route-id="@Model.StateId" class="btn btn-primary">@Localizer["state_index_changeButton"]</a>
+<a asp-action="Edit" asp-route-id="@Model.StateId" class="btn btn-primary">@Localizer["Change"]</a>

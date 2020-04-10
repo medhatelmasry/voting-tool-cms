@@ -15,6 +15,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using Web.Models.Helpers;
 using Web.Models.Configuration;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 namespace Web
 {
@@ -122,12 +126,38 @@ namespace Web
                 opts.ResourcesPath = "Resources";
             });
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddViewLocalization( opts => { 
+                    opts.ResourcesPath = "Resources";
+                })
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
             services.AddRazorPages();
+
+            // Language Culture Names, Codes, and ISO Values
+            // http://docwiki.embarcadero.com/RADStudio/Rio/en/Language_Culture_Names,_Codes,_and_ISO_Values
+
+            services.Configure<RequestLocalizationOptions>(opts =>
+            {
+                var supportedCultures = new List<CultureInfo> {
+                new CultureInfo("en"),
+                new CultureInfo("en-US"),
+                new CultureInfo("en-CA"),
+                new CultureInfo("fr"),
+                new CultureInfo("fr-FR"),
+             };
+
+                opts.DefaultRequestCulture = new RequestCulture("en-US");
+                // Formatting numbers, dates, etc.
+                opts.SupportedCultures = supportedCultures;
+                // UI strings that we have localized.
+                opts.SupportedUICultures = supportedCultures;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(
+            public void Configure(
             IApplicationBuilder app,
             ApplicationDbContext context,
             IWebHostEnvironment env)
@@ -146,6 +176,10 @@ namespace Web
             app.UseCors("EmailPolicy");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
+
 
             app.UseRouting();
 

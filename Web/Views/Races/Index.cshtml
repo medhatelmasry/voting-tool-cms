@@ -2,17 +2,17 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = @Localizer["races_index_title"];
+    ViewData["Title"] = @Localizer["Races"];
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a class="btn btn-primary" asp-action="Create">@Localizer["races_index_create"]</a> 
-    <a class="btn btn-primary" asp-action="Reorder">@Localizer["races_index_reorder"]</a>
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create New"]</a>
+    <a class="btn btn-primary" asp-action="Reorder">@Localizer["Reorder"]</a>
 </p>
 <table class="table panel panel-default">
     <thead>
@@ -32,22 +32,22 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PositionName)
-            </td>
-            <td>
-                @Html.Raw(item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberNeeded)
-            </td>
-            <td class="button-group">
-                <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.RaceId">@Localizer["editButton"]</a>
-                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.RaceId">@Localizer["detailButton"]</a>
-                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.RaceId">@Localizer["deleteButton"]</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PositionName)
+                </td>
+                <td>
+                    @Html.Raw(item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberNeeded)
+                </td>
+                <td class="button-group">
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.RaceId">@Localizer["Edit"]</a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.RaceId">@Localizer["Details"]</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.RaceId">@Localizer["Delete"]</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

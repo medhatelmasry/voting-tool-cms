@@ -2,10 +2,10 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = @Localizer["ballotIssues_edit_title"];
+    ViewData["Title"] = @Localizer["Edit"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -23,10 +23,10 @@
             </div>
 
             @* <div class="form-group">
-                @Html.LabelFor(ballotIssue => ballotIssue.Description, new { @class = "control-label" })
-                @Html.TextAreaFor(ballotIssue => ballotIssue.Description, new { @class = "form-control", @rows = 4 })
-                @Html.ValidationMessageFor(ballotIssue => ballotIssue.Description, "", new { @class = "text-danger" })
-            </div> *@
+                    @Html.LabelFor(ballotIssue => ballotIssue.Description, new { @class = "control-label" })
+                    @Html.TextAreaFor(ballotIssue => ballotIssue.Description, new { @class = "form-control", @rows = 4 })
+                    @Html.ValidationMessageFor(ballotIssue => ballotIssue.Description, "", new { @class = "text-danger" })
+                </div> *@
 
             @Html.LabelFor(model => model.Description, new { @class = "control-label" })
             <textarea id='editor' asp-for="Description">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <button id="RemoveIssueOption" type="button" role="button" class="btn btn-primary btn-sm" onClick="removeOption(@i)">@Localizer["ballotIssues_removeOptionButton"]</button>
+                            <button id="RemoveIssueOption" type="button" role="button" class="btn btn-primary btn-sm" onClick="removeOption(@i)">@Localizer["Remove"]</button>
                         </div>
                     </div>
 
@@ -73,16 +73,16 @@
             }
         </script>
 
-            <div class="form-group one-line">
-                <button type="button" role="button" class="btn btn-primary" onClick="addOption()">@Localizer["ballotIssues_addOptionButton"]</button>
-          
-                <input type="submit" value=@Localizer["saveButton"] class="btn btn-success" />
-            </div>
+        <div class="form-group one-line">
+            <button type="button" role="button" class="btn btn-primary" onClick="addOption()">@Localizer["Add"]</button>
+
+            <input type="submit" value=@Localizer["Save"] class="btn btn-success" />
+        </div>
     </form>
 </div>
 
 <div>
-    <a class="btn btn-info" asp-action="Index">@Localizer["backButton"]</a>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section scripts {

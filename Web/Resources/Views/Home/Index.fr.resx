@@ -129,11 +129,35 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Tableau de bord</value>
   </data>
+  <data name="Elections" xml:space="preserve">
+    <value>Élections</value>
+  </data>
   <data name="More info" xml:space="preserve">
     <value>Plus d'informations</value>
   </data>
+  <data name="Open Graphs" xml:space="preserve">
+    <value>Ouvrir les graphiques</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Les organisations</value>
+  </data>
   <data name="Plan Your Vote - CMS" xml:space="preserve">
     <value>Planifiez votre vote - CMS</value>
+  </data>
+  <data name="Polling Places" xml:space="preserve">
+    <value>lieux de vote</value>
+  </data>
+  <data name="Races" xml:space="preserve">
+    <value>Les courses</value>
+  </data>
+  <data name="Social Media" xml:space="preserve">
+    <value>Médias sociaux</value>
+  </data>
+  <data name="States" xml:space="preserve">
+    <value>Etat</value>
+  </data>
+  <data name="Themes" xml:space="preserve">
+    <value>Thèmes</value>
   </data>
   <data name="Use this tool to populate your database with Candidates, Positions(Races) to elect for etc." xml:space="preserve">
     <value>Utilisez cet outil pour alimenter votre base de données avec des candidats, des postes (courses) à élire, etc.</value>

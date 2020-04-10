@@ -5,7 +5,7 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = @Localizer["socialMedia_edit_title"];
+    ViewData["Title"] = @Localizer["Edit"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -36,7 +36,7 @@
 </div>
 
 <div>
-    <a class="btn btn-info" asp-action="Index">@Localizer["backButton"]</a>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section Scripts {
