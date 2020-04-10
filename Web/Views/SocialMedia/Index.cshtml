@@ -3,13 +3,13 @@
 @using Web
 @inject IStringLocalizer<SharedResource> Localizer
 @{
-    ViewData["Title"] = @Localizer["socialMedia_index_title"];
+    ViewData["Title"] = @Localizer["Social Media"];
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a class="btn btn-primary" asp-action="Create">@Localizer["createNewButton"]</a>
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create New"]</a>
 </p>
 <div class="table-responsive-sm">
 <table class="table panel panel-default">
@@ -40,9 +40,9 @@
                 @Html.DisplayFor(modelItem => item.Link)
             </td>
             <td class="button-group">
-                <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.ID">@Localizer["editButton"]</a>
-                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.ID">@Localizer["detailButton"]</a>
-                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.ID">@Localizer["deleteButton"]</a>
+                <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a>
+                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.ID">@Localizer["Details"]</a>
+                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
             </td>
         </tr>
     }

@@ -5,14 +5,14 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = Localizer["organizations_index_title"];  
+    ViewData["Title"] = Localizer["Organizations"];  
 }
 
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a class="btn btn-primary" asp-action="Create">@Localizer["organizations_index_create"]</a>
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create"]</a>
 </p>
 <div class="table-responsive-sm">
     <table class="table panel panel-default">
@@ -38,9 +38,9 @@
                     @Html.Raw(item.Description)
                 </td>
                 <td class="button-group">
-                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.OrganizationId">@Localizer["editButton"]</a>
-                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.OrganizationId">@Localizer["detailButton"]</a>
-                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.OrganizationId">@Localizer["deleteButton"]</a>
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.OrganizationId">@Localizer["Edit"]</a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.OrganizationId">@Localizer["Details"]</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.OrganizationId">@Localizer["Delete"]</a>
                 </td>
             </tr>
         }

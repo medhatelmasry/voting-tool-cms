@@ -3,13 +3,13 @@
 @using Web
 @inject IStringLocalizer<SharedResource> Localizer
 @{
-    ViewData["Title"] = Localizer["openGraphs_details_title"];
+    ViewData["Title"] = Localizer["Details"];
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>@Localizer["openGraphs_subtitle"]</h4>
+    <h4>@Localizer["Open Graphs"]</h4>
     <hr />
     <dl class="row panel panel-default">
         <dt class = "col-sm-2">
@@ -51,6 +51,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.OpenGraphId">@Localizer["editButton"]</a> |
-    <a asp-action="Index">@Localizer["backButton"]</a>
+    <a asp-action="Edit" asp-route-id="@Model.OpenGraphId">@Localizer["Edit"]</a> |
+    <a asp-action="Index">@Localizer["Back to List"]</a>
 </div>

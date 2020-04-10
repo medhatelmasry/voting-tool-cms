@@ -6,7 +6,7 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = Localizer["organizations_create_title"];
+    ViewData["Title"] = Localizer["Create"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -32,7 +32,7 @@
 </div>
 
 <div>
-    <a class="btn btn-primary" asp-action="Index">@Localizer["backButton"]</a>
+    <a class="btn btn-primary" asp-action="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section scripts {
