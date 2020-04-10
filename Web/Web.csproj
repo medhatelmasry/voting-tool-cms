@@ -6,9 +6,9 @@
     <!-- original -->
     <!-- <UserSecretsId>aspnet-Web-6BE69C66-5660-4FF5-B59C-6D6811275B1B</UserSecretsId> -->
     
-    <!-- reneilpascua/mapbox_fix -->
+    <!-- local secret for reneilpascua/mapbox_fix -->
     <UserSecretsId>e304dd5c-6078-4796-9ef8-e2cb9deaabbb</UserSecretsId>
-    
+
   </PropertyGroup>
 
   <ItemGroup>
