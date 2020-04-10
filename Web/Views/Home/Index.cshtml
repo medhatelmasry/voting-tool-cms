@@ -14,7 +14,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">@Localizer["home_index_subtitle"]</h1>
+    <h1 class="display-4">@Localizer["Use this tool to populate your database with Candidates, Positions(Races) to elect for etc."]</h1>
     <h3>@Model.ElectionName</h3>
 </div>
 
@@ -22,7 +22,7 @@
 
 
 <section class="content-header">
-    <h1 class="display-3">@Localizer["home_index_dashboard"]</h1>
+    <h1 class="display-3">@Localizer["Dashboard"]</h1>
     <br />
 </section>
 
@@ -32,13 +32,13 @@
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>@Model.CandidatesCount</h3>
-                    <p>@Localizer["home_index_candidates"]</p>
+                    <p>@Localizer["Candidates"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">people</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="Candidates" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -46,13 +46,13 @@
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>@Model.PollingPlacesCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_pollingPlaces"]</p>
+                    <p>@Localizer["Polling Places"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">location_on</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="PollingPlaces" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -60,13 +60,13 @@
             <div class="small-box bg-yellow">
                 <div class="inner">
                     <h3>@Model.BallotIssuesCount</h3>
-                    <p>@Localizer["home_index_ballotIssues"]</p>
+                    <p>@Localizer["Ballot Issues"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">format_list_bulleted</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="BallotIssues" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -79,13 +79,13 @@
             <div class="small-box bg-teal">
                 <div class="inner">
                     <h3>@Model.RacesCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_races"]</p>
+                    <p>@Localizer["Races"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">account_box</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="Races" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -93,13 +93,13 @@
             <div class="small-box bg-light-blue">
                 <div class="inner">
                     <h3>@Model.ThemesCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_themes"]</p>
+                    <p>@Localizer["Themes"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">format_paint</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="Themes" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -107,13 +107,13 @@
             <div class="small-box bg-olive">
                 <div class="inner">
                     <h3>@Model.StatesCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_state"]</p>
+                    <p>@Localizer["States"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">location_city</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="States" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -123,13 +123,13 @@
             <div class="small-box bg-orange">
                 <div class="inner">
                     <h3>@Model.ElectionsCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_elections"]</p>
+                    <p>@Localizer["Elections"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">how_to_vote</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="Elections" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -137,13 +137,13 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>@Model.OpenGraphsCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_openGraphs"]</p>
+                    <p>@Localizer["Open Graphs"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">insert_chart</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="OpenGraphs" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -151,13 +151,13 @@
             <div class="small-box bg-purple">
                 <div class="inner">
                     <h3>@Model.OrganizationsCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_organizations"]</p>
+                    <p>@Localizer["Organizations"]</p>
                 </div>
                 <div class="icon">
                     <i class="material-icons">home_work</i>
                 </div>
                 <a class="small-box-footer" asp-area="" asp-controller="Organizations" asp-action="Index">
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
@@ -168,7 +168,7 @@
                 <div class="inner">
 
                     <h3>@Model.SocialMediaCount<sup style="font-size: 20px"></sup></h3>
-                    <p>@Localizer["home_index_socialMedia"]</p>
+                    <p>@Localizer["Social Media"]</p>
 
                 </div>
                 <div class="icon">
@@ -177,7 +177,7 @@
 
                 <a class="small-box-footer" asp-area="" asp-controller="SocialMedia" asp-action="Index">
 
-                    @Localizer["home_index_moreInfo"] <i class="material-icons">chevron_right</i>
+                    @Localizer["More info"] <i class="material-icons">chevron_right</i>
                 </a>
             </div>
         </div>
