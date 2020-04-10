@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Web.Data.Migrations
 {
-    public partial class M1 : Migration
+    public partial class m1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -86,8 +86,8 @@ namespace Web.Data.Migrations
                 {
                     OpenGraphId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(nullable: false),
-                    URL = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(maxLength: 256, nullable: false),
+                    URL = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     Determiner = table.Column<string>(nullable: true),
                     Locale = table.Column<string>(nullable: true),
@@ -104,7 +104,7 @@ namespace Web.Data.Migrations
                 {
                     OrganizationId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -253,7 +253,7 @@ namespace Web.Data.Migrations
                     BallotIssueId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ElectionId = table.Column<int>(nullable: false),
-                    BallotIssueTitle = table.Column<string>(nullable: true),
+                    BallotIssueTitle = table.Column<string>(maxLength: 256, nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -276,15 +276,15 @@ namespace Web.Data.Migrations
                     ElectionId = table.Column<int>(nullable: false),
                     PollingPlaceName = table.Column<string>(nullable: true),
                     PollingStationName = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(maxLength: 512, nullable: false),
                     WheelchairInfo = table.Column<string>(nullable: true),
                     ParkingInfo = table.Column<string>(nullable: true),
                     Latitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false),
                     AdvanceOnly = table.Column<bool>(nullable: false),
                     LocalArea = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Phone = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -321,7 +321,7 @@ namespace Web.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SocialMedias",
+                name: "SocialMedia",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -333,9 +333,9 @@ namespace Web.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SocialMedias", x => x.ID);
+                    table.PrimaryKey("PK_SocialMedia", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_SocialMedias_Elections_ElectionId",
+                        name: "FK_SocialMedia_Elections_ElectionId",
                         column: x => x.ElectionId,
                         principalTable: "Elections",
                         principalColumn: "ElectionId",
@@ -447,7 +447,7 @@ namespace Web.Data.Migrations
                     CandidateId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ElectionId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
                     Picture = table.Column<string>(nullable: false),
                     OrganizationId = table.Column<int>(nullable: false)
                 },
@@ -5309,8 +5309,8 @@ namespace Web.Data.Migrations
                 column: "ElectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SocialMedias_ElectionId",
-                table: "SocialMedias",
+                name: "IX_SocialMedia_ElectionId",
+                table: "SocialMedia",
                 column: "ElectionId");
 
             migrationBuilder.CreateIndex(
@@ -5369,7 +5369,7 @@ namespace Web.Data.Migrations
                 name: "PollingPlaceDates");
 
             migrationBuilder.DropTable(
-                name: "SocialMedias");
+                name: "SocialMedia");
 
             migrationBuilder.DropTable(
                 name: "StateSingleton");
