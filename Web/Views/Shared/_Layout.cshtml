@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using  Microsoft.AspNetCore.Mvc.Localization
+@* @inject IViewLocalizer Localizer *@
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.Extensions.Localization
+@using Web
+@inject SignInManager<IdentityUser> SignInManager
+@inject IStringLocalizer<SharedResource> Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -24,24 +32,74 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Web</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Plan Your Vote</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            
+                
+                @* Elections: Manage Elections (State), All Elections (State) *@
+                <ul class="navbar-nav flex-grow-1">
+                    @if (User.Identity.IsAuthenticated) {
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Elections
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="States" asp-action="Index">Manage Elections</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Elections" asp-action="Index">All Elections</a>
+                        </div>
+                    </li>
+
+                    @* Candidates Details: Races (Races), Questions (BallotIssues), Polling Places (Polling Places), Steps *@
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Candidate Details
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Races" asp-action="Index">Races</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="BallotIssues" asp-action="Index">Questions</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="PollingPlaces" asp-action="Index">Polling Places</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Steps" asp-action="Index">Steps</a>
+                        </div>
+                    </li>
+
+                    @*  *@
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Candidate Details
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Candidates" asp-action="Index">Candidates</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Candidates" asp-action="Create">Create Candidate</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Organizations" asp-action="Index">Organizations</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            UI Details
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Images" asp-action="Index">Images</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Themes" asp-action="Index">Themes</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="SocialMedia" asp-action="Index">Organizations</a>
+                        </div>
+                    </li>
+
+                 
+                     @if (SignInManager.IsSignedIn(User) && User.IsInRole(Constants.Account.ROLE_ADMIN)) {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                        </li>
+                    }
+                }
+                </ul>
+              
+
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Themes" asp-action="Index">Theme</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
