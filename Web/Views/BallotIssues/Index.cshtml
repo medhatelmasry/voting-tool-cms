@@ -30,10 +30,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BallotIssueTitle)
+                    @Html.DisplayFor(modelItem => item.BallotIssueTitle))
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.Raw(item.Description)
                 </td>
                 <td class="button-group">
                     <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.BallotIssueId">@Localizer["Edit"]</a>
@@ -44,3 +44,10 @@
         }
     </tbody>
 </table>
+
+<script>
+    public static string StripTagsRegex(string source)
+    {
+        return Regex.Replace(source, "<.*?>", string.Empty);
+    }
+</script>

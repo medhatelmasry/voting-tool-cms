@@ -34,6 +34,7 @@ namespace Web.Models.Domain
         public int CandidateId { get; set; }
 
         [Display(Name = "Candidate")]
+        
         public Candidate Candidate { get; set; }
 
         [Display(Name = "Title")]

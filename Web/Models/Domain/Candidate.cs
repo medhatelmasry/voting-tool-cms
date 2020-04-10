@@ -16,10 +16,13 @@ namespace Web.Models.Domain
         public Election Election { get; set; }
 
         [Display(Name = "Name")]
+        [Required(ErrorMessage = "Please enter a Name.")]
+        [StringLength(256, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 256 characters in length.")]
         public string Name { get; set; }
 
         [Display(Name = "Picture")]
         [Required(ErrorMessage = "Please select an image to upload.")]
+        [RegularExpression(@"(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)")]
         public string Picture { get; set; }
 
         [Display(Name = "CandidateDetails")]

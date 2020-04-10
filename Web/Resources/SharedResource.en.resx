@@ -381,7 +381,7 @@
 
 
     <!-- View Localization -->
-    <!-- SocialMedias -->
+    <!-- SocialMedia -->
 
     <data name="socialMedia_create_title" xml:space="preserve">
         <value>Create New Social Media Icon</value>

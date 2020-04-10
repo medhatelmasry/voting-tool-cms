@@ -18,7 +18,9 @@ namespace Web.ViewModels
         public int ElectionsCount { get; set; }
         public int OpenGraphsCount { get; set; }
         public int OrganizationsCount { get; set; }
-        public int SocialMediasCount { get; set; }
+
+        public int SocialMediaCount { get; set; }
+
         public string ElectionName { get; set; }
     }
 }
