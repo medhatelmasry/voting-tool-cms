@@ -2,10 +2,10 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = @Localizer["Delete Polling Place"];
+    ViewData["Title"] = @Localizer["Delete"];
 }
 
 <h1>@ViewData["Title"]</h1>

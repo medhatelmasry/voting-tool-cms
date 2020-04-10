@@ -2,7 +2,8 @@
 @using  Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
 @using Web
-@inject IStringLocalizer<SharedResource> Localizer
+
+@inject IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = @Localizer["Polling Places"];
@@ -31,22 +32,22 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PollingPlaceName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PollingStationName)
-            </td>
-            <td class="button-group">
-                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.PollingPlaceId">@Localizer["Edit"]</a>
-                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.PollingPlaceId">@Localizer["Details"]</a>
-                <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.PollingPlaceId">@Localizer["Delete"]</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PollingPlaceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PollingStationName)
+                </td>
+                <td class="button-group">
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.PollingPlaceId">@Localizer["Edit"]</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.PollingPlaceId">@Localizer["Details"]</a>
+                    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.PollingPlaceId">@Localizer["Delete"]</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
