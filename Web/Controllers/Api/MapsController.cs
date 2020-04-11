@@ -1,14 +1,21 @@
+using GeoCoordinatePortable;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.KeyVault.Models;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
+using System.Windows.Input;
+using Web.DTO;
 using Web.Data;
+using Web.Models;
 using Web.Models.Configuration;
-using Web.Models.Domain;
 
 namespace Web.Controllers.Api
 {
