@@ -15,7 +15,7 @@ using Web.ViewModels;
 
 namespace Web.Controllers.Cms
 {
-    
+    //This page will not load properly and throw GroupBy not supported exception
     public class CandidatesController : Controller
     {
         private readonly ApplicationDbContext _context;
