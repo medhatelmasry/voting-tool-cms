@@ -5,7 +5,7 @@ using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.KeyVault.Models;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +16,7 @@ using Web.DTO;
 using Web.Data;
 using Web.Models;
 using Web.Models.Configuration;
+using Newtonsoft.Json;
 
 namespace Web.Controllers.Api
 {
@@ -28,43 +29,47 @@ namespace Web.Controllers.Api
         public static string AccessToken { get; set; }
         public static MapConfiguration MapConfiguration { get; set; }
 
-        public static async Task<string> GetAccessToken()
-        {
-            string accessToken = AccessToken;
+        // public static async Task<string> GetAccessToken()
+        // {
+        //     string accessToken = AccessToken;
 
-            try
-            {
-                if (string.IsNullOrEmpty(accessToken))
-                {
-                    SecretBundle secret = null;
+        //     try
+        //     {
+        //         if (string.IsNullOrEmpty(accessToken))
+        //         {
+        //             SecretBundle secret = null;
 
-                    KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
+        //             KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(new AzureServiceTokenProvider().KeyVaultTokenCallback));
 
-                    secret = await keyVaultClient
-                        .GetSecretAsync($"https://{MapConfiguration.KeyVaultName}.vault.azure.net/secrets/{MapConfiguration.SecretName}")
-                        .ConfigureAwait(false);
+        //             secret = await keyVaultClient
+        //                 .GetSecretAsync($"https://{MapConfiguration.KeyVaultName}.vault.azure.net/secrets/{MapConfiguration.SecretName}")
+        //                 .ConfigureAwait(false);
 
-                    if (secret != null)
-                    {
-                        accessToken = secret.Value;
-                    }
-                }
-            }
-            catch (KeyVaultErrorException kvee)
-            {
-                // TODO
-            }
+        //             if (secret != null)
+        //             {
+        //                 accessToken = secret.Value;
+        //             }
+        //         }
+        //     }
+        //     catch (KeyVaultErrorException kvee)
+        //     {
+        //         // TODO
+        //     }
 
-            return accessToken;
+        //     return accessToken;
+        // }
+        
+        public string GetAccessToken() {
+            return "pk.eyJ1IjoicmVuZWlscGFzY3VhIiwiYSI6ImNrOHVxMmU3ZjBkcHkzc28zMnd2Nm9ud2cifQ.Q_4bZudInkF-NvzWlLxdyQ";
         }
-
         public MapsController(ApplicationDbContext context, IOptions<MapConfiguration> mapConfiguration)
         {
             _context = context;
 
             MapConfiguration = mapConfiguration.Value;
 
-            AccessToken = GetAccessToken().GetAwaiter().GetResult();
+            // AccessToken = GetAccessToken().GetAwaiter().GetResult();
+            AccessToken = GetAccessToken();
         }
 
         [HttpGet("{location}")]
