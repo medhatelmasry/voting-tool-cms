@@ -59,7 +59,9 @@ namespace Web.Controllers.Cms
             };
             return View(model);
         }
-
+        //GROUPBY DO NOT WORK FOR THIS it is no longer supported in DotNet 3.x.
+        //Suggestion would be to put functionality of GroupBy in a function and try calling it eachtime.
+        //Failed to implement this. Current version builds.
         public virtual async Task<IActionResult> GetCandidates(string orderBy)
         {
             CandidatesByRaceViewModel model = new CandidatesByRaceViewModel
