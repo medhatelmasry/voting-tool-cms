@@ -30,6 +30,9 @@ namespace Web.Controllers.Cms
         // GET: Candidates
         public async Task<IActionResult> Index()
         {
+            //GROUPBY DO NOT WORK FOR THIS it is no longer supported in DotNet 3.x.
+            //Suggestion would be to put functionality of GroupBy in a function and try calling it eachtime.
+            //Failed to implement this. Current version builds.
             var races = await _context.Races
                 .Where(r => r.ElectionId == _managedElectionID)
                 .OrderBy(r => r.BallotOrder)
