@@ -39,7 +39,7 @@ namespace Web.Controllers.Cms
                     .Where(c => c.ElectionId == _managedElectionID)
                     .Count(),
                 RacesCount = _context.Races
-                    .Where(c => c.RaceId == _managedElectionID)
+                    // .Where(c => c.RaceId == _managedElectionID)
                     .Count(),
                 ThemesCount = _context.Themes
                     // .Where(c => c.T == _managedElectionID)
@@ -48,13 +48,13 @@ namespace Web.Controllers.Cms
                     .Where(c => c.StateId == _managedElectionID)
                     .Count(),
                 ElectionsCount = _context.Elections
-                    .Where(c => c.ElectionId == _managedElectionID)
+                    // .Where(c => c.ElectionId == _managedElectionID)
                     .Count(),
                 OpenGraphsCount = _context.OpenGraph
                     .Where(c => c.OpenGraphId == _managedElectionID)
                     .Count(),
                 OrganizationsCount = _context.Organizations
-                    .Where(c => c.OrganizationId == _managedElectionID)
+                    // .Where(c => c.OrganizationId == _managedElectionID)
                     .Count(),
 
                 SocialMediaCount = _context.SocialMedia
