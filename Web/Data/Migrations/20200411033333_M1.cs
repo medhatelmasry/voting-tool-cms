@@ -954,102 +954,102 @@ namespace Web.Data.Migrations
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 9, "999 W 19th Avenue", false, 1, "contact3@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "University 3", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 9, "999 W 19th Avenue", false, 1, "contact3@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "University 3", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 8, "888 W 18th Avenue", false, 1, "contact1@organization.com", 0.0, "Downtown", 0.0, "Parking Lot", "111-222-3333", "University 2", "Cafeteria", "Wheelchair accessible by ramp" });
+                values: new object[] { 8, "888 W 18th Avenue", false, 1, "contact1@organization.com", 49.261000000000003, "Downtown", -123.1139, "Parking Lot", "111-222-3333", "University 2", "Cafeteria", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 7, "777 W 17th Avenue", false, 1, "contact3@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "University 1", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 7, "777 W 17th Avenue", false, 1, "contact3@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "University 1", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 6, "666 W 16th Avenue", false, 1, "contact2@organization.com", 0.0, "Local Neighbourhood", 0.0, "No Parking", "111-222-3333", "School 5", "Cafeteria", "No wheelchair access" });
+                values: new object[] { 6, "666 W 16th Avenue", false, 1, "contact2@organization.com", 49.261000000000003, "Local Neighbourhood", -123.1139, "No Parking", "111-222-3333", "School 5", "Cafeteria", "No wheelchair access" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 4, "444 W 14th Avenue", false, 1, "contact1@organization.com", 0.0, "Downtown", 0.0, "Parking Lot", "111-222-3333", "School 3", "Auditorium", "Wheelchair accessible by ramp" });
+                values: new object[] { 4, "444 W 14th Avenue", false, 1, "contact1@organization.com", 49.261000000000003, "Downtown", -123.1139, "Parking Lot", "111-222-3333", "School 3", "Auditorium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 10, "111 W 11th Avenue", false, 1, "contact3@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "University 4", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 10, "111 W 11th Avenue", false, 1, "contact3@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "University 4", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 3, "333 W 13th Avenue", false, 1, "contact2@organization.com", 0.0, "Local Neighbourhood", 0.0, "No Parking", "111-222-3333", "School 2", "Cafeteria", "No wheelchair access" });
+                values: new object[] { 3, "333 W 13th Avenue", false, 1, "contact2@organization.com", 49.261000000000003, "Local Neighbourhood", -123.1139, "No Parking", "111-222-3333", "School 2", "Cafeteria", "No wheelchair access" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 2, "222 W 12th Avenue", false, 1, "contact2@organization.com", 0.0, "Local Neighbourhood", 0.0, "No Parking", "111-222-3333", "School 1", "Cafeteria", "No wheelchair access" });
+                values: new object[] { 2, "222 W 12th Avenue", false, 1, "contact2@organization.com", 49.261000000000003, "Local Neighbourhood", -123.1139, "No Parking", "111-222-3333", "School 1", "Cafeteria", "No wheelchair access" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 1, "111 W 11th Avenue", false, 1, "contact1@organization.com", 0.0, "Downtown", 0.0, "Parking Lot", "111-222-3333", "City Hall", "Town Hall Room", "Wheelchair accessible by ramp" });
+                values: new object[] { 1, "111 W 11th Avenue", false, 1, "contact1@organization.com", 49.261000000000003, "Downtown", -123.1139, "Parking Lot", "111-222-3333", "City Hall", "Town Hall Room", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 5, "555 W 15th Avenue", false, 1, "contact2@organization.com", 0.0, "Local Neighbourhood", 0.0, "No Parking", "111-222-3333", "School 4", "Cafeteria", "No wheelchair access" });
+                values: new object[] { 5, "555 W 15th Avenue", false, 1, "contact2@organization.com", 49.261000000000003, "Local Neighbourhood", -123.1139, "No Parking", "111-222-3333", "School 4", "Cafeteria", "No wheelchair access" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 11, "222 W 12th Avenue", false, 1, "contact1@organization.com", 0.0, "Downtown", 0.0, "Parking Lot", "111-222-3333", "University 5", "Cafeteria", "Wheelchair accessible by ramp" });
+                values: new object[] { 11, "222 W 12th Avenue", false, 1, "contact1@organization.com", 49.261000000000003, "Downtown", -123.1139, "Parking Lot", "111-222-3333", "University 5", "Cafeteria", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 15, "666 W 16th Avenue", false, 1, "contact4@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Community Centre 3", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 15, "666 W 16th Avenue", false, 1, "contact4@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Community Centre 3", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 13, "444 W 14th Avenue", false, 1, "contact4@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Community Centre 1", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 13, "444 W 14th Avenue", false, 1, "contact4@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Community Centre 1", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 14, "555 W 15th Avenue", false, 1, "contact4@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Community Centre 2", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 14, "555 W 15th Avenue", false, 1, "contact4@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Community Centre 2", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 16, "777 W 17th Avenue", false, 1, "contact4@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Community Centre 4", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 16, "777 W 17th Avenue", false, 1, "contact4@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Community Centre 4", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 17, "888 W 18th Avenue", false, 1, "contact5@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Church 1", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 17, "888 W 18th Avenue", false, 1, "contact5@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Church 1", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 18, "999 W 19th Avenue", false, 1, "contact5@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Church 2", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 18, "999 W 19th Avenue", false, 1, "contact5@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Church 2", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 19, "111 W 11th Avenue", false, 1, "contact5@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Church 3", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 19, "111 W 11th Avenue", false, 1, "contact5@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Church 3", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 12, "333 W 13th Avenue", false, 1, "contact3@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "University 6", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 12, "333 W 13th Avenue", false, 1, "contact3@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "University 6", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "PollingPlaces",
                 columns: new[] { "PollingPlaceId", "Address", "AdvanceOnly", "ElectionId", "Email", "Latitude", "LocalArea", "Longitude", "ParkingInfo", "Phone", "PollingPlaceName", "PollingStationName", "WheelchairInfo" },
-                values: new object[] { 20, "222 W 12th Avenue", false, 1, "contact5@organization.com", 0.0, "Local Neighborhood", 0.0, "Parking Lot", "111-222-3333", "Church 4", "Gymnasium", "Wheelchair accessible by ramp" });
+                values: new object[] { 20, "222 W 12th Avenue", false, 1, "contact5@organization.com", 49.261000000000003, "Local Neighborhood", -123.1139, "Parking Lot", "111-222-3333", "Church 4", "Gymnasium", "Wheelchair accessible by ramp" });
 
             migrationBuilder.InsertData(
                 table: "Races",
