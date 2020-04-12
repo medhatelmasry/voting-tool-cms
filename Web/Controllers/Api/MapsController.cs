@@ -60,7 +60,7 @@ namespace Web.Controllers.Api
         // }
         
         public string GetAccessToken() {
-            return "pk.eyJ1IjoicmVuZWlscGFzY3VhIiwiYSI6ImNrOHVxMmU3ZjBkcHkzc28zMnd2Nm9ud2cifQ.Q_4bZudInkF-NvzWlLxdyQ";
+            return "test_api_key";
         }
         public MapsController(ApplicationDbContext context, IOptions<MapConfiguration> mapConfiguration)
         {
