@@ -104,7 +104,8 @@ namespace Web.Controllers.Api
                                             
                                             // todo: fix orderby in ef 3.1 syntax
                                             // note: this DOES NOT order by proximity to pollingPlaceCoordinate at the moment
-                                            .OrderBy(pollingPlace => pollingPlaceCoordinate.Latitude)
+                                            
+                                            // .OrderBy(pollingPlace => pollingPlaceCoordinate.Latitude)
                                             .Take(20)
                                             .ToList();
 
@@ -112,50 +113,60 @@ namespace Web.Controllers.Api
 
                 foreach (var pollingPlace in nearestPollingPlaces)
                 {
-                    Console.WriteLine("a1");
                     string getRequestString = $"{longitude},{latitude};" +
                             $"{pollingPlace.Longitude},{pollingPlace.Latitude}" +
                             $"?access_token={AccessToken}";
+
+                    // log the request string                    
                     Console.WriteLine(getRequestString);
+
                     var response = await client
                         .GetAsync(getRequestString)
                         .ConfigureAwait(false);
 
-                    Console.WriteLine("a2");
+                    // log the response
                     Console.WriteLine($"{response}");
+
                     if (!response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("F M L");
                         throw new ArgumentException(response.ReasonPhrase);
                     }
 
                     
-                    Console.WriteLine("a3");
                     var map = JsonConvert.DeserializeObject<Map>(
                         await response.Content
                         .ReadAsStringAsync()
                         .ConfigureAwait(false));
 
-                    Console.WriteLine("a4");
-                    distances.Add(new DistanceDTO
-                    {
-                        PollingPlaceID = pollingPlace.PollingPlaceId,
-                        Distance = map.Routes
-                        .Select(routes => routes.Distance)
-                        .First(),
-                    });
-                    Console.WriteLine("a5");
+                    // write one found route's duration
+                    Console.WriteLine(map.Routes[0].Duration);
+
+                    // add a distanceDTO representing a polling place and its distance (requires valid route from A to B)
+                    try {
+                        distances.Add(new DistanceDTO
+                        {
+                            PollingPlaceID = pollingPlace.PollingPlaceId,
+                            Distance = map.Routes
+                            .Select(routes => routes.Distance)
+                            .First(),
+                        });
+                    // if mapbox has not found any routes, goes to this catch block
+                    } catch (InvalidOperationException ioe) {
+                        Console.WriteLine("no route found by mapbox");
+                        distances.Add(new DistanceDTO{
+                            PollingPlaceID = pollingPlace.PollingPlaceId,
+                            Distance = 1000000.00, //arbitrarily large number to place it at the bottom of the return list
+                        });
+                    }
                 }
             }
             catch (ArgumentException ex)
             {
-                Console.WriteLine("uhh");
                 Console.WriteLine($"{ex}");
                 return BadRequest(ex);
             }
             catch (FormatException ex)
             {
-                Console.WriteLine("uhhh");
                 return BadRequest(ex);
             }
 
