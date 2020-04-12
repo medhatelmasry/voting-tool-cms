@@ -82,34 +82,61 @@ namespace Web.Controllers.Api
                 double longitude = double.Parse(location.Split(',')[0]);
                 double latitude = double.Parse(location.Split(',')[1]);
 
+                Console.WriteLine("longitude = "+longitude);
+                Console.WriteLine("latitude = "+latitude);
+
                 var pollingPlaceCoordinate = new GeoCoordinate(latitude, longitude);
 
+                // only works in .net 2.2
+                // var nearestPollingPlaces = _context.PollingPlaces
+                //                         .Where(pollingPlace => pollingPlace.ElectionId == _context.StateSingleton.First().RunningElectionID)
+                //                         .OrderBy(
+                //                             pollingPlace => 
+                //                                 new GeoCoordinate(pollingPlace.Latitude, pollingPlace.Longitude)
+                //                                 .GetDistanceTo(pollingPlaceCoordinate)
+                //                         )
+                //                         .Take(20)
+                //                         .ToList();
+
+
                 var nearestPollingPlaces = _context.PollingPlaces
-                                        .Where(pollingPlace => pollingPlace.ElectionId == _context.StateSingleton.First().RunningElectionID)
-                                        .OrderBy(pollingPlace => new GeoCoordinate(pollingPlace.Latitude, pollingPlace.Longitude).GetDistanceTo(pollingPlaceCoordinate))
-                                        .Take(20)
-                                        .ToList();
+                                            .Where(pollingPlace => pollingPlace.ElectionId == _context.StateSingleton.First().RunningElectionID)
+                                            
+                                            // todo: fix orderby in ef 3.1 syntax
+                                            // note: this DOES NOT order by proximity to pollingPlaceCoordinate at the moment
+                                            .OrderBy(pollingPlace => pollingPlaceCoordinate.Latitude)
+                                            .Take(20)
+                                            .ToList();
+
+                Console.WriteLine("lat: "+nearestPollingPlaces[0].Latitude+ " long: " + nearestPollingPlaces[0].Longitude);
 
                 foreach (var pollingPlace in nearestPollingPlaces)
                 {
-                    var response = await client
-                        .GetAsync(
-                            $"{longitude},{latitude};" +
+                    Console.WriteLine("a1");
+                    string getRequestString = $"{longitude},{latitude};" +
                             $"{pollingPlace.Longitude},{pollingPlace.Latitude}" +
-                            $"?access_token={AccessToken}"
-                        )
+                            $"?access_token={AccessToken}";
+                    Console.WriteLine(getRequestString);
+                    var response = await client
+                        .GetAsync(getRequestString)
                         .ConfigureAwait(false);
 
+                    Console.WriteLine("a2");
+                    Console.WriteLine($"{response}");
                     if (!response.IsSuccessStatusCode)
                     {
+                        Console.WriteLine("F M L");
                         throw new ArgumentException(response.ReasonPhrase);
                     }
 
+                    
+                    Console.WriteLine("a3");
                     var map = JsonConvert.DeserializeObject<Map>(
                         await response.Content
                         .ReadAsStringAsync()
                         .ConfigureAwait(false));
 
+                    Console.WriteLine("a4");
                     distances.Add(new DistanceDTO
                     {
                         PollingPlaceID = pollingPlace.PollingPlaceId,
@@ -117,14 +144,18 @@ namespace Web.Controllers.Api
                         .Select(routes => routes.Distance)
                         .First(),
                     });
+                    Console.WriteLine("a5");
                 }
             }
             catch (ArgumentException ex)
             {
+                Console.WriteLine("uhh");
+                Console.WriteLine($"{ex}");
                 return BadRequest(ex);
             }
             catch (FormatException ex)
             {
+                Console.WriteLine("uhhh");
                 return BadRequest(ex);
             }
 
