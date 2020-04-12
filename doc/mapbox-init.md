@@ -14,6 +14,12 @@ sidebar_label: Initial Setup
    ![Create a New Token](assets/mapbox-init-03.png) ![Create a New Token](assets/mapbox-init-04.png)
 8. Copy the new token. [It will be used in your CDA.](#CDA) ![New Token](assets/mapbox-init-05.png)
 
+edit 11/04/2020 22:00:
+9. To test locally, without azure, add your key to ([cms project]/Web/Controllers/Api/MapsController.cs) in the GetAccessToken method
+
+edit 11/04/2020 23:16:
+9. Azure Key Vault dependency has been removed. Now, the way is to put your key in appsettings.json under "MapConfiguration".
+
 ## CMS
 
 ### Local

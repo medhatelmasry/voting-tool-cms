@@ -59,9 +59,20 @@ namespace Web.Controllers.Api
         //     return accessToken;
         // }
         
-        public string GetAccessToken() {
-            return "test_api_key";
+
+
+
+        // simply returns a mapbox api key
+        // public static string GetAccessToken() {
+        //     return "test_api_key";
+        // }
+
+
+        // gets mapbox api key from appsettings.json
+        public static string GetAccessToken() {
+            return MapConfiguration.ApiKey;
         }
+
         public MapsController(ApplicationDbContext context, IOptions<MapConfiguration> mapConfiguration)
         {
             _context = context;
@@ -72,6 +83,7 @@ namespace Web.Controllers.Api
             AccessToken = GetAccessToken();
         }
 
+        // example: /api/maps/-123.1169,49.2710
         [HttpGet("{location}")]
         public async Task<ActionResult<object>> GetClosestLocations(string location)
         {
