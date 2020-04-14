@@ -39,7 +39,7 @@
                     @Html.DisplayFor(modelItem => item.StepTitle)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StepDescription)
+                    @Html.Raw(item.StepDescription)
                 </td>
                 <td class="button-group">
                     <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.ID">@Localizer["editButton"]</a>

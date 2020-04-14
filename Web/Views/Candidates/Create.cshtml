@@ -16,7 +16,7 @@
 </script>
 
 <h1>@ViewData["Title"]</h1>
-
+<link rel="stylesheet" href="~/css/trumbowyg.css" />
 <div class="panel panel-default">
     <form asp-action="Create" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -65,7 +65,7 @@
         </div>
         <div id="allDetails">
             <div class="detail-group">
-                @{ await Html.RenderPartialAsync("CandidateDetail", Model); }
+                    @{ await Html.RenderPartialAsync("CandidateDetail", Model); }
             </div>
         </div>
         <div>
@@ -73,6 +73,7 @@
             <hr />
             <input type="hidden" id="removedContacts" name="RemovedContacts" value="" required />
         </div>
+
         <div id="allContacts">
             <div class="contact-group">
                 @{ await Html.RenderPartialAsync("CandidateContact", Model); }
@@ -136,6 +137,11 @@
     <a class="btn btn-primary" asp-action="Index">@Localizer["backButton"]</a>
 </div>
 
-@section Scripts {
+@section scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+    <script src="~/lib/Trumbowyg-master/dist/trumbowyg.js"></script>
+    <script>$('.trumbowyg').trumbowyg();</script>
+
 }

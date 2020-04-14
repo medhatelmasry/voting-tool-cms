@@ -19,7 +19,7 @@
 </div>
 <div class="form-group">
     @Html.LabelFor(c => c.Candidate.Details[lastIndex].Text, new { @class = "control-label" })
-    @Html.TextAreaFor(c => c.Candidate.Details[lastIndex].Text, new { @class = "form-control rich-text-editor", @rows = 10 })
+    <textarea id='editor' class="trumbowyg" asp-for="Candidate.Details[lastIndex].Text"></textarea>
     @Html.ValidationMessageFor(c => c.Candidate.Details[lastIndex].Text, "", new { @class = "text-danger" })
 </div>
 <div class="form-group">
