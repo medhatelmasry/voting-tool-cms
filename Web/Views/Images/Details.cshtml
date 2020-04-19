@@ -6,7 +6,7 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = @Localizer["images_details_title"];
+    ViewData["Title"] = @Localizer["Details"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -54,5 +54,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary" })
-    <a class="btn btn-info" asp-action="Index">@Localizer["backButton"]</a>
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back to List"]</a>
 </div>

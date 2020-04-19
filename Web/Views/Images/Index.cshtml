@@ -6,14 +6,14 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = @Localizer["images_index_title"];
+    ViewData["Title"] = @Localizer["Images"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a class="btn btn-primary" asp-action="Create">@Localizer["createNewButton"]</a>
+    <a class="btn btn-primary" asp-action="Create">@Localizer["Create"]</a>
 </p>
 <table class="table panel panel-default">
     <thead>
