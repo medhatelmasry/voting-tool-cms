@@ -130,10 +130,13 @@
     <value>Détails</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>modifier</value>
+    <value>Modifier</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Indice</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S'inscrire</value>
   </data>
   <data name="Role List" xml:space="preserve">
     <value>Liste de rôle</value>

@@ -5,7 +5,7 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = @Localizer["UserManagement_edit_title"];
+    ViewData["Title"] = @Localizer["Edit"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -37,6 +37,6 @@
             </tr>
         </tbody>
     </table>
-    <button type="submit" class="btn btn-success">@Localizer["saveButton"]</button> 
-    <a class="btn btn-info" asp-action="Index">@Localizer["backButton"]</a>
+    <button type="submit" class="btn btn-success">@Localizer["Save"]</button> 
+    <a class="btn btn-info" asp-action="Index">@Localizer["Back"]</a>
 </form>

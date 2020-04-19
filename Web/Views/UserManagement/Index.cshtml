@@ -5,13 +5,13 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @{
-    ViewData["Title"] = @Localizer["userManagement_edit_title"];
+    ViewData["Title"] = @Localizer["Role Management"];
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div style="margin-bottom:10px;">
-    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">@Localizer["userManagement_index_registerButton"]</a>
+    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">@Localizer["Register"]</a>
 </div>
 
 <table class="table panel panel-default user-management">
@@ -60,9 +60,9 @@
             <tr>
                 <td colspan="3" class="user-management-btns">
                     <div>
-                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@userRoleViewModel.IdentityUser.UserName">@Localizer["editButton"]</a>
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@userRoleViewModel.IdentityUser.UserName">@Localizer["Edit"]</a>
                         <form asp-action="Delete" asp-route-id="@userRoleViewModel.IdentityUser.Id">
-                            <input type="submit" class="btn btn-danger btn-sm" value=@Localizer["deleteButton"] />
+                            <input type="submit" class="btn btn-danger btn-sm" value=@Localizer["Delete"] />
                         </form>
                     </div>
 
